@@ -1,0 +1,52 @@
+:root {
+    --bg: #030303;
+    --tile-color: #1a1a1a;
+    --accent: #00f2ff;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.scene {
+    perspective: 1000px; /* Defines the "distance" of the viewer */
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    gap: 10px;
+    transform: rotateX(20deg) rotateZ(-10deg); /* Initial tilt for depth */
+    transform-style: preserve-3d;
+}
+
+.tile {
+    width: 40px;
+    height: 40px;
+    background: var(--tile-color);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 4px;
+    transition: background 0.3s, transform 0.1s ease-out;
+    will-change: transform;
+}
+
+.overlay-ui {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    color: white;
+    text-align: right;
+    pointer-events: none;
+}
